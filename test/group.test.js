@@ -1,5 +1,5 @@
 const assert = require('assert')
-const Group = require('../models/group')
+const Group = require('../components/groups/group')
 let group
 
 beforeEach(() => {
