@@ -1,5 +1,8 @@
 'use strict'
 
+const Animal = require('./components/animals/animal')
+const animalRoutes = require('./components/animals/animalRoutes')
+
 const Group = require('./components/groups/group')
 const groupRoutes = require('./components/groups/groupRoutes')
 
@@ -26,3 +29,10 @@ app.get('/groups/:id', groupRoutes.show)
 app.post('/groups', groupRoutes.create)
 app.put('/groups/:id', groupRoutes.update)
 app.delete('/groups/:id', groupRoutes.destroy)
+
+// Animals Endpoints
+app.use('/animals', router)
+app.get('/animals', animalRoutes.index)
+app.get('/animals/:id', animalRoutes.show)
+app.post('/animals', animalRoutes.create)
+app.put('/animals/:id', animalRoutes.update)

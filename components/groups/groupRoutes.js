@@ -43,7 +43,7 @@ exports.update = (req, res) => {
       group.name = name
       group.save()
             .then(() => {
-              res.end(JSON.stringify({ response: `Group name changed from ${formerName} to ${group.name}.` }))
+              res.end(JSON.stringify({ response: `Group name updated from ${formerName} to ${group.name}.` }))
             })
     }
   })
