@@ -25,6 +25,7 @@ app.listen(port, () =>
 // Groups Endpoints
 app.use('/groups', router)
 app.get('/groups', groupRoutes.index)
+app.get('/groups/:id/animals', groupRoutes.indexAnimals)
 app.get('/groups/:id', groupRoutes.show)
 app.post('/groups', groupRoutes.create)
 app.put('/groups/:id', groupRoutes.update)

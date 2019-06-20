@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Group = require('./group')
+const Animal = require('../animals/animal')
 
 exports.index = (req, res) => {
   Group.find({}, (err, groups) => {
@@ -9,6 +10,21 @@ exports.index = (req, res) => {
     })
     res.send(groupMap)
   })
+}
+
+exports.indexAnimals = (req, res) => {
+  groupId = req.params.id
+  Animal.find({group: groupId}, (err, animals) => {
+          if (err) {
+            res.end(JSON.stringify({ response: 'there was an error' }))
+          } else {
+            let animalMap = {}
+            animals.forEach((animal) => {
+              animalMap[animal._id] = animal
+            })
+            res.send(animalMap)
+          }
+        })
 }
 
 exports.show = (req, res) => {
